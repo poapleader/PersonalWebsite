@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <head>
-  <title>OpenAI Quickstart</title>
+  <title>CardIsleAI</title>
   <link
     rel="shortcut icon"
-    href="{{ url_for('static', filename='dog.png') }}"
+    href="{{ url_for('static', filename='card.png') }}"
   />
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
 
 <body>
-  <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
-  <h3>Name my pet</h3>
+  <img src="{{ url_for('static', filename='card.png') }}" class="icon" />
+  <h3>Design me a Greeting Card</h3>
+  <h4>Step 1</h4>
   <form action="/" method="post">
-    <input type="text" name="animal" placeholder="Enter an animal" required />
-    <input type="submit" value="Generate names" />
+    <input type="text" name="card" placeholder="Describe the type of card you are looking for" required />
+    <!-- <p>Example: My mother loves gardening, canning, and quality time with family.  Can you describe a greeting card I might send her for Mother's Day?  </p> -->
+    <input type="submit" value="Generate card idea" />
   </form>
   {% if result %}
-  <div class="result">{{ result }}</div>
+  <p>Copy this image description and then navigate to <a href="localhost:5000/frontCover">localhost:5000/frontCover</a> for the next step</p>
+  <h4>Image Description:</h4>
+  <p>{{ image_description }}</p>
+  <h4>Inside Message</h4>
+  <p>{{ inside_message }}</p>
   {% endif %}
+  <!-- <h4>Step 2</h4>
+  <form action="/frontCover" method="post">
+    <input type="text" name="frontCover" placeholder="Copy over the image description" required />
+    <input type="submit" value="Generate front cover" />
+  </form>
+  {% if coverImageResult %}
+  <a href="{{ coverImageResult }}">link to image</a> 
+  <img src="{{ coverImageResult }}" />
+  {% endif %} -->
+  
 </body>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+  <title>Musings on AI</title>
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='cocktail.png') }}"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+
+<body>
+  <header>
+    <h1 class="nospace" style="text-align: center">Musings on AI</h1>
+    <p class="nospace" style="text-align: center">An attempt to organize my understanding of the transformation we are living through.</p>
+    <p class="nospace" style="text-align: center">- - -</p>
+  </header>
+
+  <main>
+    <section >
+        <h2 class="nospace">The Landscape</h2>
+        <p class="nospace">Complex, nuanced, multidimensional, and rapidly changing.  Re-injected into the zeitgist by OpenAI's chatGPT.  Powered by the concept of the large language model (LLM), the transformer, and a steadfast commitment of AI researchers to push the field of AI forward since it's birth in 1956.  The ongoing debate on how to best respond to these new breakthroughs could be defined as a continuum between the points that Mark Andreesson's <a href="https://pmarca.substack.com/p/why-ai-will-save-the-world" target="_blank">AI Will Save the World</a> and Tristan Harris's <a href="https://www.youtube.com/watch?v=xoVJKj8lcNQ" target="_blank">The AI Dilemma</a> are attempting to make.  My hope in chronicling my learning journey in this form is to create a space where you can learn, explore, and form your own opinon on the topic.  I believe the stakes are high and am comitted to actively engaging, learning, and participating instead of surrendering as a bystander.  I am far from an expert so please reach out if something I've shared here is innacurate, dated, or misleading.<p>
+        <p></p>
+    </section>
+
+    <section >
+      <h2 class="nospace">Useful Resources</h2>
+      <p class="nospace">A collection of links to external resources that I have found helpful in attempting to wrap my head around this space</p>
+      <ul class="nospace">
+        <li><a href="https://a16z.com/2023/05/25/ai-canon/">AI Canon</a> | Looking for a deep dive?  This collection of resources by a16z served as my entry point into the science and history behind the world of AI .</li>
+        <li><a href="https://tldr.tech/ai">TLDR AI Newsletter</a> | A daily dose of AI, ML, and Data Science droped in your inbox each morning</li>
+        <li><a href="https://www.promptingguide.ai/techniques">Prompt Engineering Guide</a> | Learn how to unlock the hidden power of your LLM of choice by learning how to frame your question.  Hands down one of the best prompt engineering resources that I have found so far.</li>
+        <li><a href="https://a16z.com/2023/06/20/emerging-architectures-for-llm-applications">The LLM App Stack</a> | a16z's take on the approach AI startups and sophisticated tech companies are using as they deploy products powered by LLMs.</li>
+      </ul>
+      <p></p>
+    </section>
+
+    <section >
+      <h2 class="nospace">My AI Playground</h2>
+      <p class="nospace">A few examples of AI powered tools that I've built</p>
+      <ul class="nospace">
+        <li>Meet Autumn my AI powered bartender:</li>
+        <ul>
+          <li><a href="{{ url_for('reserveBar')}}">Personal Bar Tender</a> | What are a few cocktails can be made from the items I have on hand?</li>
+          <li><a href="{{ url_for('reserveBarDinnerPairing')}}">Dinner Pairing</a> | What cocktails should I plan on fixing with dinner this evening?</li>
+          <li><a href="{{ url_for('reserveBarRecipieGenerator')}}">How's It Made</a> | How do you make this type of cocktail?</li>
+        </ul>
+        <li>Coming Soon - Fred the financial analyst</li>
+        <li>Coming Soon - Pablo the prospecting wizard</li>
+        <li>Coming Soon - Flo the king of formatting</li>
+      </ul>
+      <p></p>
+    </section>
+
+    <section >
+      <h2 class="nospace">Cairns along a personal AI trail</h2>
+      <p class="nospace">Waypoints that I've noticed along my personal journey of trying to keep my bearings in this rapidly changing landscape</p>
+      <ul class="nospace">
+        <li>2023.04.?? | Watched the <a href="https://www.youtube.com/watch?v=xoVJKj8lcNQ" target="_blank">The AI Dilemma</a> for the first time</li>
+        <li>2023.06.?? | Read <a href="https://pmarca.substack.com/p/why-ai-will-save-the-world" target="_blank">AI Will Save the World</a> for the first time</li>
+        <li>2023.06.30 | Demonstrated chatGPT's capacity to function as a simple but playful and fun digital gatekeeper.  A potential replacement in some use cases for the Captcha or log in / user account.</li>
+        <li>2023.07.01 | Development of this webpage begins</li>
+        <li>2023.07.03 | <a href="https://www.youtube.com/watch?v=xoVJKj8lcNQ" target="_blank">OpenAI disables ChatGPT's "Browse" feature</a></li>
+        <li>2023.07.09 | Worked with my future brother in law to explore chatGPT-4's capacity to analyse a public companies annual and quarterly financial statements.  We were both very impressed with the quality of the analysis and wonder at the power of a product focused on this value proposition.</li>
+        <li>2023.07.TBD | Initial publication of this webpage</li>
+        
+      </ul>
+      <p></p>
+    </section>
+</body>

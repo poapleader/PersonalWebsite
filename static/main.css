@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
 @font-face {
   font-family: "ColfaxAI";
   src: url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff2)
@@ -13,6 +16,7 @@
   font-weight: bold;
   font-style: normal;
 }
+
 body,
 input {
   font-size: 16px;
@@ -29,8 +33,16 @@ body {
 .icon {
   width: 34px;
 }
+h2 a {
+  color: black; /* change to any color you want for the icons */
+  text-decoration: none;
+  /* additional styling as per your design */
+}
+h2 a:hover {
+  /* styling for when the mouse hovers over the link, e.g. change color */
+  color: gray;
+}
 h3 {
-  font-size: 32px;
   line-height: 40px;
   font-weight: bold;
   color: #202123;
@@ -39,7 +51,10 @@ h3 {
 form {
   display: flex;
   flex-direction: column;
-  width: 320px;
+  width: 500px;
+}
+ul {
+  list-style-type: disc;
 }
 input[type="text"] {
   padding: 12px 16px;
@@ -63,4 +78,23 @@ input[type="submit"] {
 .result {
   font-weight: bold;
   margin-top: 40px;
+}
+.nospace {
+  margin: 0;
+  font-family: 'Courier Prime', monospace;
+}
+.social-links-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social-links a {
+  margin: 0 10px; /* adjust as needed */
+  color: black; /* change to any color you want for the icons */
+  text-decoration: none;
+  /* additional styling as per your design */
+}
+.social-links a:hover {
+  /* styling for when the mouse hovers over the link, e.g. change color */
+  color: gray;
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>David A. Henry - Home</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='cocktail.png') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+<body>
+    <header>
+        <h1 class="nospace" style="text-align: center">David A. Henry</h1>
+        <p class="nospace" style="text-align: center">An initial foray into building and hosting my own website.</p>
+        <p></p>
+    </header>
+
+    <main>
+        <section>
+            <h2 class="nospace"><a href="{{ url_for('aiMusings') }}">Musings on AI</a></h2>
+            <p class="nospace">The breakthrough of the LLM is in the process of rewriting how society engages with technology.  These are a collection of my attempts to make sense of this transition.<br></p>
+            <p></p>
+        </section>
+
+
+        <section>
+            <h2 class="nospace">Talks and Presentations - not active yet</h2>
+            <p class="nospace">A collection of links to talks and presentations that I've given over the years.<br></p>
+            <p></p>
+        </section>
+
+        <section>
+            <h2 class="nospace">Projects & Adventures - not active yet</h2>
+            <p class="nospace">A collection of noteworth projects and adventures undertaken.<br></p>
+            <p></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links-bar">
+            <div class="social-links">
+                <a href="https://www.instagram.com/d_ahenry/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/david-henry-79310b3b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" onclick="copyToClipboard('dhenry07@vt.edu')"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <p class="nospace">© 2023 David A. Henry</p>
+    </footer>
+    <script>
+        function copyToClipboard(text) {
+            var dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+            alert("Email address copied to clipboard");
+        }
+    </script>
+</body>
+</html>
