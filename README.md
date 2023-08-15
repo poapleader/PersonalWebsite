@@ -5,6 +5,19 @@ I am in the process of updating and cleaning things up in prepartion for public 
 
  [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Flask](https://flask.palletsprojects.com/en/2.0.x/) web framework. Check out the tutorial or follow the instructions below to get set up.
 
+## Git Commands
+
+1. Git status  ##Check the branch and status of local change
+2. Git add . #adds changes 
+3. Git commit
+
+## Website Diagram
+```mermaid
+   pie title Chocolate Cakes
+      "Best" : 70
+      "Worst" : 30
+```
+
 ## Setup
 
 1. If you don’t have Python installed, [install it from here](https://www.python.org/downloads/).

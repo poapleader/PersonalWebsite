@@ -10,6 +10,24 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 def home():
     return render_template('home.html')
 
+@app.route('/quotes')
+def quotes():
+    return render_template('quotes.html')
+
+@app.route('/mermaidAITool', methods=("GET", "POST"))
+def mermaidAITool():
+    if request.method == "POST":
+        process = request.form["process"]
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=generate_mermaid_graphic(process),
+            temperature=0.6,
+            max_tokens=500,
+        )
+        return redirect(url_for("mermaidAITool", result=response.choices[0].text))
+    result = request.args.get("result")
+    return render_template('mermaidAITool.html', result=result)
+
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
@@ -148,6 +166,15 @@ def generate_cocktail_recipie(cocktail):
 """.format(
         cocktail.capitalize()
     )
+
+#Prompt to generate a mermaid.js formatted graphic
+def generate_mermaid_graphic(process):
+    return """You are an expert at creating perfect charts and diagrams using the mermaid.js syntax.  Describe the following process using the mermaid.js syntax.  Be careful with special characters and only return the mermaid.js code without any additional text or descriptions.
+{}
+""".format(
+        process.capitalize()
+    )
+
 
 def parse_card_description(prompt):
     try:

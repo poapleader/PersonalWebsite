@@ -53,6 +53,9 @@ form {
   flex-direction: column;
   width: 500px;
 }
+main {
+  width: 90%;
+} 
 ul {
   list-style-type: disc;
 }

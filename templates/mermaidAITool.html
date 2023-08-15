@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>David A. Henry - AI Tools</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='DavidHenryIcon.png') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="nospace" style="text-align: center">Poseidon's Forgotten Step Daughter Cynthia</h1>
+        <p class="nospace" style="text-align: center">An attempt to build a tool that builds a chart or graph based on a process you describe using langauge</p>
+        <p class="nospace" style="text-align: center">- - -</p>
+    </header>
+    <main class="nospace">
+        <div class="mermaid">
+            flowchart LR
+                A[Describe a process<br> using plain english] --> B[Embed this text<br> into a prompt]
+                B --> C[Feed prompt to your<br> completion LLM API of choice]
+                C --> D[Extract the mermaid.js code<br> from the LLM's response]
+                D --> E[Render the mermaid.js<br> in the browser]
+        </div>
+        <h4>Describe the process or chart that you would like to create</h4>
+        <form action="/mermaidAITool" method="post">
+          <input type="text" name="process" placeholder="Describe your process here" required />
+          <input type="submit" value="Generate Mermaid Chart" />
+        </form>
+        {% if result %}
+        <h4>This is the response:</h4>
+        <p>{{ result }}</p>
+        <h4>This is an attempt to translate this output to a mermaid diagram:</h4>
+        <div class="mermaid">
+            {{ result }}
+        </div>
+        {% endif %}
+        <P class="nospace">- - -</P>
+        <p class="nospace">If you see an error returned you've found the limits of this model and prompt and the generated text doesn't adhere to the mermaid.js syntax.  I'd encourage you to try again with a simplier process:</p>
+    </main>
+</body>

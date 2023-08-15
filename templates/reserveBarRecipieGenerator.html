@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>ReserveBarAI</title>
+  <title>David A. Henry - AI Tools</title>
   <link
     rel="shortcut icon"
     href="{{ url_for('static', filename='cocktail.png') }}"
@@ -10,7 +10,7 @@
 
 <body>
   <img src="{{ url_for('static', filename='cocktail.png') }}" class="icon" />
-  <h3>Your ReserveBar Mixologist</h3>
+  <h3>Your Personal Mixologist</h3>
   <h4>What drink do you want to make?</h4>
   <form action="/reserveBarRecipieGenerator" method="post">
     <input type="text" name="drink" placeholder="What drink do you want to make?" required />
