@@ -9,7 +9,7 @@ I am in the process of updating and cleaning things up in prepartion for public 
 
 1. Git status  ##Check the branch and status of local change
 2. Git add . #adds changes 
-3. Git commit
+3. Git commit -m "insert notes on updates"
 
 ## Website Diagram
 ```mermaid
