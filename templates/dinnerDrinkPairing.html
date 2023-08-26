@@ -12,23 +12,12 @@
   <img src="{{ url_for('static', filename='cocktail.png') }}" class="icon" />
   <h3>Your Personal Mixologist</h3>
   <h4>What are you having for dinner?</h4>
-  <form action="/reserveBarDinnerPairing" method="post">
+  <form action="/dinnerDrinkPairing" method="post">
     <input type="text" name="dinner" placeholder="What are you having for dinner?" required />
-    <!-- <p>Vodka, bitters, vermouth</p> -->
     <input type="submit" value="Generate cocktail suggestions" />
   </form>
   {% if result %}
   <p>The following cocktails would pair well with your meal!</p>
   <p>{{ result }}</p>
   {% endif %}
-  <!-- <h4>Step 2</h4>
-  <form action="/frontCover" method="post">
-    <input type="text" name="frontCover" placeholder="Copy over the image description" required />
-    <input type="submit" value="Generate front cover" />
-  </form>
-  {% if coverImageResult %}
-  <a href="{{ coverImageResult }}">link to image</a> 
-  <img src="{{ coverImageResult }}" />
-  {% endif %} -->
-  
 </body>

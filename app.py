@@ -6,14 +6,32 @@ from flask import Flask, redirect, render_template, request, url_for
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+#Route to the landing page for my personal website
 @app.route('/')
 def home():
     return render_template('home.html')
 
+#Route to the AI Musings landing page
+@app.route("/aiMusings", methods=("GET", "POST"))
+def aiMusings():
+    return render_template("aiMusings.html")
+
+#Route to my websites Talks page
+@app.route('/talks')
+def talks():
+    return render_template('talks.html')
+
+#Route to my websites Projects page
+@app.route('/projects')
+def projects():
+    return render_template('projects.html')
+
+#Route to my websites Quotes page
 @app.route('/quotes')
 def quotes():
     return render_template('quotes.html')
 
+#Route for the AI Tool that generates a Mermaid Chart 
 @app.route('/mermaidAITool', methods=("GET", "POST"))
 def mermaidAITool():
     if request.method == "POST":
@@ -27,6 +45,51 @@ def mermaidAITool():
         return redirect(url_for("mermaidAITool", result=response.choices[0].text))
     result = request.args.get("result")
     return render_template('mermaidAITool.html', result=result)
+
+#Route for the AI tool that makes cocktail suggestions from a list of items that you have on hand
+@app.route("/personalBarTender", methods=("GET", "POST"))
+def personalBarTender():
+    if request.method == "POST":
+        shoppingList = request.form["shoppingList"]
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=generate_cocktail_list(shoppingList),
+            temperature=0.6,
+            max_tokens=500,
+        )
+        return redirect(url_for("personalBarTender", result=response.choices[0].text))
+    result = request.args.get("result")
+    return render_template("personalBarTender.html", result=result)
+
+#Route for the AI tool that makes cocktail suggestions based on what you are eating for dinner
+@app.route("/dinnerDrinkPairing", methods=("GET", "POST"))
+def dinnerDrinkPairing():
+    if request.method == "POST":
+        dinner = request.form["dinner"]
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=generate_cocktail_pairing_list(dinner),
+            temperature=0.6,
+            max_tokens=500,
+        )
+        return redirect(url_for("dinnerDrinkPairing", result=response.choices[0].text))
+    result = request.args.get("result")
+    return render_template("dinnerDrinkPairing.html", result=result)
+
+#Route for an AI Tool that builds the recipies based on the name of a cocktail
+@app.route("/cocktailRecipieGenerator", methods=("GET", "POST"))
+def cocktailRecipieGenerator():
+    if request.method == "POST":
+        drink = request.form["drink"]
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=generate_cocktail_recipie(drink),
+            temperature=0.6,
+            max_tokens=500,
+        )
+        return redirect(url_for("cocktailRecipieGenerator", result=response.choices[0].text))
+    result = request.args.get("result")
+    return render_template("cocktailRecipieGenerator.html", result=result)
 
 @app.route("/card", methods=("GET", "POST"))
 def card():
@@ -42,7 +105,6 @@ def card():
     result = request.args.get("result")
     return render_template("card.html", result=result, image_description=parse_card_description(result), inside_message=extract_inside_message(result))
 
-
 @app.route('/frontCover', methods=("GET", "POST"))
 def coverImage():
     if request.method == "POST":
@@ -57,53 +119,8 @@ def coverImage():
     result = request.args.get("result")
     return render_template("image.html", result=result)
 
-@app.route("/reserveBar", methods=("GET", "POST"))
-def reserveBar():
-    if request.method == "POST":
-        shoppingList = request.form["shoppingList"]
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=generate_cocktail_list(shoppingList),
-            temperature=0.6,
-            max_tokens=500,
-        )
-        return redirect(url_for("reserveBar", result=response.choices[0].text))
-    result = request.args.get("result")
-    return render_template("reserveBar.html", result=result)
 
-@app.route("/reserveBarDinnerPairing", methods=("GET", "POST"))
-def reserveBarDinnerPairing():
-    if request.method == "POST":
-        dinner = request.form["dinner"]
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=generate_cocktail_pairing_list(dinner),
-            temperature=0.6,
-            max_tokens=500,
-        )
-        return redirect(url_for("reserveBarDinnerPairing", result=response.choices[0].text))
-    result = request.args.get("result")
-    return render_template("reserveBarDinnerPairing.html", result=result)
-
-@app.route("/aiMusings", methods=("GET", "POST"))
-def aiMusings():
-    return render_template("aiMusings.html")
-
-@app.route("/reserveBarRecipieGenerator", methods=("GET", "POST"))
-def reserveBarRecipieGenerator():
-    if request.method == "POST":
-        drink = request.form["drink"]
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=generate_cocktail_recipie(drink),
-            temperature=0.6,
-            max_tokens=500,
-        )
-        return redirect(url_for("reserveBarRecipieGenerator", result=response.choices[0].text))
-    result = request.args.get("result")
-    return render_template("reserveBarRecipieGenerator.html", result=result)
-
-
+#The List of Prompts for the AI Tools
 
 
 def generate_card_description(card):

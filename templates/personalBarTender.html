@@ -11,24 +11,13 @@
 <body>
   <img src="{{ url_for('static', filename='cocktail.png') }}" class="icon" />
   <h3>Your Personal Mixologist</h3>
-  <h4>What do you have in your ReserveBar shopping cart?</h4>
-  <form action="/reserveBar" method="post">
+  <h4>Tell me what you have on hand and I will share some inspiration for cocktails you can make with these ingredients?</h4>
+  <form action="/personalBarTender" method="post">
     <input type="text" name="shoppingList" placeholder="List three ingredients that are in your cart" required />
-    <!-- <p>Vodka, bitters, vermouth</p> -->
     <input type="submit" value="Generate cocktail ideas" />
   </form>
   {% if result %}
   <p>With these ingredients you could make these cocktails:</p>
   <p>{{ result }}</p>
   {% endif %}
-  <!-- <h4>Step 2</h4>
-  <form action="/frontCover" method="post">
-    <input type="text" name="frontCover" placeholder="Copy over the image description" required />
-    <input type="submit" value="Generate front cover" />
-  </form>
-  {% if coverImageResult %}
-  <a href="{{ coverImageResult }}">link to image</a> 
-  <img src="{{ coverImageResult }}" />
-  {% endif %} -->
-  
 </body>

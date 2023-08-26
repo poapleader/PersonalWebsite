@@ -12,23 +12,12 @@
   <img src="{{ url_for('static', filename='cocktail.png') }}" class="icon" />
   <h3>Your Personal Mixologist</h3>
   <h4>What drink do you want to make?</h4>
-  <form action="/reserveBarRecipieGenerator" method="post">
+  <form action="/cocktailRecipieGenerator" method="post">
     <input type="text" name="drink" placeholder="What drink do you want to make?" required />
-    <!-- <p>moscow mule</p> -->
     <input type="submit" value="Generate Recipie" />
   </form>
   {% if result %}
   <p>This is the recipie for your...</p>
   <p>{{ result }}</p>
   {% endif %}
-  <!-- <h4>Step 2</h4>
-  <form action="/frontCover" method="post">
-    <input type="text" name="frontCover" placeholder="Copy over the image description" required />
-    <input type="submit" value="Generate front cover" />
-  </form>
-  {% if coverImageResult %}
-  <a href="{{ coverImageResult }}">link to image</a> 
-  <img src="{{ coverImageResult }}" />
-  {% endif %} -->
-  
 </body>
