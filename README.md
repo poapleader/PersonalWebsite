@@ -5,11 +5,17 @@ I am in the process of updating and cleaning things up in prepartion for public 
 
  [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Flask](https://flask.palletsprojects.com/en/2.0.x/) web framework. Check out the tutorial or follow the instructions below to get set up.
 
-## Git Commands
-
+## Git Commands For Updating a the master Git Repo
 1. Git status  ##Check the branch and status of local change
 2. Git add . #adds changes 
-3. Git commit -m "insert notes on updates"
+3. Git commit -m "insert notes on updates" #Comits the changes to the branch
+4. Git push #pushes the local branch changes to the branch origin.
+
+## Git Commands for updating the local git repo from the master git repo
+1. Git status
+2. Git Pull
+ 
+
 
 ## Updating the AWS Linux Webserver
 1.  Open git Bash

@@ -6,7 +6,7 @@ from flask import Flask, redirect, render_template, request, url_for
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-@app.route('/home')
+@app.route('/')
 def home():
     return render_template('home.html')
 
@@ -28,8 +28,8 @@ def mermaidAITool():
     result = request.args.get("result")
     return render_template('mermaidAITool.html', result=result)
 
-@app.route("/", methods=("GET", "POST"))
-def index():
+@app.route("/card", methods=("GET", "POST"))
+def card():
     if request.method == "POST":
         card = request.form["card"]
         response = openai.Completion.create(
@@ -38,9 +38,9 @@ def index():
             temperature=0.6,
             max_tokens=500,
         )
-        return redirect(url_for("index", result=response.choices[0].text))
+        return redirect(url_for("card", result=response.choices[0].text))
     result = request.args.get("result")
-    return render_template("index.html", result=result, image_description=parse_card_description(result), inside_message=extract_inside_message(result))
+    return render_template("card.html", result=result, image_description=parse_card_description(result), inside_message=extract_inside_message(result))
 
 
 @app.route('/frontCover', methods=("GET", "POST"))
