@@ -11,6 +11,15 @@ I am in the process of updating and cleaning things up in prepartion for public 
 2. Git add . #adds changes 
 3. Git commit -m "insert notes on updates"
 
+## Updating the AWS Linux Webserver
+1.  Open git Bash
+2.  SSH into the EC2 Instance with command: ssh -i Downloads/MyLinuxWebServer.pem ec2-user@ec2-54-80-50-151.compute-1.amazonaws.com
+3.  Is the server running?
+   1. If so then run "ps aux | grep gunicorn" to find the process id and then kill -HUP [MASTER_PID] to update the process
+   2. If not start the server with "gunicorn app:app --bind 0.0.0.0:8000"
+
+
+
 ## Website Diagram
 ```mermaid
    pie title Chocolate Cakes
