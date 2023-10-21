@@ -91,6 +91,22 @@ def cocktailRecipieGenerator():
     result = request.args.get("result")
     return render_template("cocktailRecipieGenerator.html", result=result)
 
+#Route for my first attempt at creating a chatbot 
+@app.route('/myFirstChatBot', methods=("GET", "POST"))
+def myFirstChatBot():
+    if request.method == "POST":
+        lastMessage = request.form["lastMessage"]
+        completion = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": lastMessage}
+            ]
+        )
+        return redirect(url_for("myFirstChatBot", result=completion.choices[-1].message))
+    result = request.args.get("result")
+    return render_template('myFirstChatBot.html', result=result)
+
 @app.route("/card", methods=("GET", "POST"))
 def card():
     if request.method == "POST":

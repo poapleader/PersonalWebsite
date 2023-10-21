@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>David A. Henry - AI Tools</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='DavidHenryIcon.png') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="nospace" style="text-align: center">My First Chat Bot</h1>
+        <p class="nospace" style="text-align: center">An attempt to build a AI chatbot...not working yet</p>
+        <p class="nospace" style="text-align: center">- - -</p>
+    </header>
+    <main class="nospace">
+        <h4>This is my first chatbot.....</h4>
+        <form action="/myFirstChatBot" method="post">
+          <input type="text" name="lastMessage" placeholder="Describe your process here" required />
+          <input type="submit" value="Submit Prompt" />
+        </form>
+        {% if result %}
+        <h4>This is the response:</h4>
+        <p>{{ result }}</p>
+        <h4>This is an attempt to translate this output to a mermaid diagram:</h4>
+            {{ result }}
+        {% endif %}
+    </main>
+</body>
